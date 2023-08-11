@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Pantalla de Inicio</title>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                font-family: Arial, sans-serif;
+                background-color: #f0f0f0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                
+            }
+            body {
+                margin: 0;
+                padding: 0;
+                background-image: url("wallpaper.jpg");
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+            }
+
+            .container {
+                text-align: center;
+                padding: 20px;
+                background-color: #fff;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            }
+
+            h1 {
+                margin-bottom: 20px;
+            }
+
+            .start-button {
+                padding: 10px 20px;
+                background-color: #007bff;
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                font-size: 18px;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Juegazo Humilde</h1>
+            <p>
+                Bienvenido al juegazo humilde espero que lo puedas disfrutar al
+                jugar como nosotros sufrimos al crearlo, muchas gracias.
+            </p>
+            <button class="start-button" onclick="startApp()">Comenzar</button>
+        </div>
+
+        <script>
+            function startApp() {
+                // Redireccionar a la página principal de la aplicación o realizar otras acciones
+                window.location.href = "main.html";
+            }
+        </script>
+    </body>
+</html>
