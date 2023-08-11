@@ -8,16 +8,16 @@
             .cronometro {
                 font-size: 24px;
                 position: relative;
-                top: -200px; /* Cambiar esta propiedad para ajustar la posición vertical */
-                left: 500px; /* Cambiar esta propiedad para ajustar la posición horizontal */
+                top: -200px; 
+                left: 500px; 
             }
 
             .my-image {
                 position: relative;
-                top: 0px; /* Cambiar esta propiedad para ajustar la posición vertical */
-                left: -50px; /* Cambiar esta propiedad para ajustar la posición horizontal */
-                width: 300px; /* Ancho de la imagen en píxeles */
-                height: 300px; /* Altura de la imagen en píxeles */
+                top: 0px;
+                left: -50px; 
+                width: 300px;
+                height: 300px; 
             }
 
             body {
@@ -33,26 +33,26 @@
                 grid-template-columns: repeat(
                     10,
                     30px
-                ); /* 10 columnas de 30px cada una */
+                ); 
                 grid-template-rows: repeat(
                     10,
                     30px
-                ); /* 10 filas de 30px cada una */
-                gap: 1px; /* Espacio entre celdas */
-                background-color: #fff; /* Color de fondo de la grilla */
+                ); 
+                gap: 1px; 
+                background-color: #fff; 
             }
 
             .grid-item {
-                background-color: #ccc; /* Color de fondo predeterminado de las celdas */
+                background-color: #ccc;
                 width: 100%;
                 height: 100%;
                 cursor: pointer;
                 border: 20px, solid #000;
             }
 
-            /* Agrega estilos específicos para celdas coloreadas */
+            
             .grid-item.active {
-                background-color: #ff000000; /* Color rojo para celdas activas */
+                background-color: #ff000000; 
                 border: 20px, solid #000;
             }
 
@@ -73,8 +73,8 @@
             }
 
             .eraser {
-                background-color: #ffffff; /* Color blanco para representar la goma */
-                border: 1px solid #000; /* Borde para resaltar la goma */
+                background-color: #ffffff; 
+                border: 1px solid #000; 
             }
         </style>
     </head>
@@ -153,36 +153,33 @@
                 return numero < 10 ? "0" + numero : numero;
             }
 
-            iniciarCronometro(); // Iniciar el cronómetro automáticamente al cargar la página
+            iniciarCronometro(); 
 
-            let currentColor = "#ff0000"; // Color predeterminado para la paleta de colores
-            let eraserMode = false; // Bandera para indicar si está activada la goma
+            let currentColor = "#ff0000"; 
+            let eraserMode = false; 
 
-            // Función para cambiar el color actual al hacer clic en un color de la paleta
             function setColor(color) {
                 currentColor = color;
-                eraserMode = false; // Asegurarse de que la goma esté desactivada al seleccionar un color
+                eraserMode = false; 
             }
 
-            // Función para activar o desactivar la goma
+            
             function setEraser() {
                 eraserMode = !eraserMode;
             }
 
-            // Obtén el contenedor de la grilla
+            
             const gridContainer = document.getElementById("grid-container");
 
-            // Genera las celdas y añádelas al contenedor
             for (let i = 0; i < 10; i++) {
                 for (let j = 0; j < 10; j++) {
                     const cell = document.createElement("div");
                     cell.classList.add("grid-item");
                     gridContainer.appendChild(cell);
 
-                    // Agrega un evento para cambiar el color de la celda al hacer clic
                     cell.addEventListener("click", () => {
                         if (eraserMode) {
-                            cell.style.backgroundColor = "#ccc"; // Establecer el color predeterminado para la goma
+                            cell.style.backgroundColor = "#ccc"; 
                         } else {
                             cell.style.backgroundColor = currentColor;
                         }
