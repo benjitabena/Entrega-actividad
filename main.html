@@ -1,23 +1,24 @@
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Grilla 10x10 Coloreable con Paleta de Colores y Goma</title>
+        <title>GRILLA CARALHO</title>
         <style>
             .cronometro {
                 font-size: 24px;
                 position: relative;
-                top: -200px; 
-                left: 500px; 
+                top: -200px;
+                left: 500px;
             }
 
-            .my-image {
+            .Imagen {
                 position: relative;
                 top: 0px;
-                left: -50px; 
+                left: -50px;
                 width: 300px;
-                height: 300px; 
+                height: 300px;
             }
 
             body {
@@ -28,21 +29,15 @@
                 margin: 1;
                 background-color: #f0f0f0;
             }
-            .grid-container {
+            .grilla {
                 display: grid;
-                grid-template-columns: repeat(
-                    10,
-                    30px
-                ); 
-                grid-template-rows: repeat(
-                    10,
-                    30px
-                ); 
-                gap: 1px; 
-                background-color: #fff; 
+                grid-template-columns: repeat(10, 30px);
+                grid-template-rows: repeat(10, 30px);
+                gap: 1px;
+                background-color: #fff;
             }
 
-            .grid-item {
+            .cuadraditosDeLaGrilla {
                 background-color: #ccc;
                 width: 100%;
                 height: 100%;
@@ -50,45 +45,36 @@
                 border: 20px, solid #000;
             }
 
-            
             .grid-item.active {
-                background-color: #ff000000; 
+                background-color: #ff000000;
                 border: 20px, solid #000;
             }
 
-            .color-palette {
+            .colores {
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 margin-top: 10px;
             }
 
-            .color,
-            .eraser {
+            .color{
                 width: 35px;
                 height: 20px;
                 margin: 15px;
                 cursor: pointer;
                 border-radius: 15px;
             }
-
-            .eraser {
-                background-color: #ffffff; 
-                border: 1px solid #000; 
-            }
         </style>
     </head>
     <body>
         <div class="cronometro" id="cronometro">00:00:00</div>
 
-        <img class="my-image" src="CATO.png" alt="Descripción de la imagen" />
+        <img class="Imagen" src="CATO.png" alt="jksjkds caralho" />
 
-        <div class="grid-container" id="grid-container">
-            <!-- Las celdas se agregarán aquí mediante JavaScript -->
+        <div class="grilla" id="grilla">
         </div>
 
-        <div class="color-palette" id="color-palette">
-            <!-- Paleta de colores y goma -->
+        <div class="colores" id="colores">
             <div
                 class="color"
                 style="background-color: #84d474"
@@ -104,24 +90,26 @@
                 style="background-color: #54bcb4"
                 onclick="setColor('#54bcb4')"
             ></div>
-            <div class="eraser" onclick="setEraser()"></div>
-            <!-- Agrega más colores aquí si lo deseas -->
         </div>
-        <form action="/procesar" method="post">
             <button type="submit">Enviar Grilla</button>
         </form>
         <script>
+            let grilla = []
+            let GatoHecho = [
+
+            ]
+
             let segundos = 0;
             let minutos = 0;
             let horas = 0;
-            let interval;
+            let intervalo;
 
             function iniciarCronometro() {
-                interval = setInterval(actualizarCronometro, 1000);
+                intervalo = setInterval(actualizarCronometro, 1000);
             }
 
             function detenerCronometro() {
-                clearInterval(interval);
+                clearInterval(intervalo);
             }
 
             function reiniciarCronometro() {
@@ -153,39 +141,39 @@
                 return numero < 10 ? "0" + numero : numero;
             }
 
-            iniciarCronometro(); 
+            iniciarCronometro();
 
-            let currentColor = "#ff0000"; 
-            let eraserMode = false; 
+            let currentColor = "##84d474";
 
             function setColor(color) {
                 currentColor = color;
-                eraserMode = false; 
             }
 
-            
-            function setEraser() {
-                eraserMode = !eraserMode;
-            }
-
-            
-            const gridContainer = document.getElementById("grid-container");
+            let Grillas = document.getElementById("grilla");
 
             for (let i = 0; i < 10; i++) {
                 for (let j = 0; j < 10; j++) {
                     const cell = document.createElement("div");
-                    cell.classList.add("grid-item");
-                    gridContainer.appendChild(cell);
+                    cell.classList.add("cuadraditosDeLaGrilla");
+                    Grillas.appendChild(cell);
 
                     cell.addEventListener("click", () => {
-                        if (eraserMode) {
-                            cell.style.backgroundColor = "#ccc"; 
-                        } else {
                             cell.style.backgroundColor = currentColor;
                         }
-                    });
+                    );
                 }
             }
+//nos preguntamos si las grillas son iguales para poder compararlas y que nos salte la alerta.
+
+//El sweetalert
+/*Swal.fire(
+'Good job!',
+'You clicked the button!',
+'success'
+)*/
+            function SonIguales(){
+                
+            };
         </script>
     </body>
 </html>
